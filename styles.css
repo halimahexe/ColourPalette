@@ -52,6 +52,12 @@ body {
     }
 }
 
+@media (max-width: 420px) {
+    h1 {
+        font-size: 1.9rem;
+    }
+}
+
 /* .colour-grid #colour-one {
     background-color: ;
 }
