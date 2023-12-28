@@ -13,7 +13,7 @@ const colourThree = document.querySelector("#colour-three");
 const colourFour = document.querySelector("#colour-four");
 const colourFive = document.querySelector("#colour-five");
 
-function randCol() {
+function randCol(boxColour) {
     let digitOne = Math.floor(Math.random() * colours.one.length);
     let digitTwo = Math.floor(Math.random() * colours.two.length);
     let digitThree = Math.floor(Math.random() * colours.three.length);
@@ -21,7 +21,7 @@ function randCol() {
     let digitFive = Math.floor(Math.random() * colours.five.length);
     let digitSix = Math.floor(Math.random() * colours.six.length);
     let hexCode = `#${digitOne}${digitTwo}${digitThree}${digitFour}${digitFive}${digitSix}`
-    colourOne.style.backgroundColor = hexCode;
+    boxColour.style.backgroundColor = hexCode;
 }
 
-randCol();
+randCol(colourTwo);
