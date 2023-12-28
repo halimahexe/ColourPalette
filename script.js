@@ -29,8 +29,19 @@ function randCol(boxColour, boxText) {
     boxColour.style.backgroundColor = hexCode;
     boxText.innerText = hexCode;
 }
-randCol(colourOne, textOne);
-randCol(colourTwo, textTwo);
-randCol(colourThree, textThree);
-randCol(colourFour, textFour);
-randCol(colourFive, textFive);
+
+function generate() {
+    randCol(colourOne, textOne);
+    randCol(colourTwo, textTwo);
+    randCol(colourThree, textThree);
+    randCol(colourFour, textFour);
+    randCol(colourFive, textFive);
+}
+
+generate();
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === " ") {
+        generate()
+    };
+});
