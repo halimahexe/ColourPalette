@@ -1,4 +1,4 @@
-const colours = 'abcdef0123456789';
+const chars = 'abcdef0123456789';
 
 const colourOne = document.querySelector("#colour-one");
 const colourTwo = document.querySelector("#colour-two");
@@ -15,7 +15,7 @@ function randCol(boxColour, boxText) {
     let hexCode = '#';
 
     for (let i = 0; i < 6; i++) {
-        hexCode += colours[Math.floor(Math.random() * colours.length)];
+        hexCode += chars[Math.floor(Math.random() * chars.length)];
     }
 
     boxColour.style.backgroundColor = hexCode;
