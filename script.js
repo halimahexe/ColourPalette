@@ -1,26 +1,31 @@
+// Characters that make up hex code
 const chars = 'abcdef0123456789';
 
-const colourOne = document.querySelector("#colour-one");
-const colourTwo = document.querySelector("#colour-two");
-const colourThree = document.querySelector("#colour-three");
-const colourFour = document.querySelector("#colour-four");
-const colourFive = document.querySelector("#colour-five");
-const textOne = document.querySelector("#text-one");
-const textTwo = document.querySelector("#text-two");
-const textThree = document.querySelector("#text-three");
-const textFour = document.querySelector("#text-four");
-const textFive = document.querySelector("#text-five");
-const pickOne = document.querySelector("#pick-one");
-const pickTwo = document.querySelector("#pick-two");
-const pickThree = document.querySelector("#pick-three");
-const pickFour = document.querySelector("#pick-four");
-const pickFive = document.querySelector("#pick-five");
+// Generate button
+const genBtn = document.querySelector('#generate');
 
-// document.onload = instructions();
+// Colour boxes
+const colourOne = document.querySelector("#colour-1");
+const colourTwo = document.querySelector("#colour-2");
+const colourThree = document.querySelector("#colour-3");
+const colourFour = document.querySelector("#colour-4");
+const colourFive = document.querySelector("#colour-5");
 
-// function instructions() {
-//     alert("Hello!");
-// }
+// Text boxes that correspond to colour boxes
+const textOne = document.querySelector("#text-1");
+const textTwo = document.querySelector("#text-2");
+const textThree = document.querySelector("#text-3");
+const textFour = document.querySelector("#text-4");
+const textFive = document.querySelector("#text-5");
+
+// Colour pickers that correspond to colour boxes
+const pickOne = document.querySelector("#pick-1");
+const pickTwo = document.querySelector("#pick-2");
+const pickThree = document.querySelector("#pick-3");
+const pickFour = document.querySelector("#pick-4");
+const pickFive = document.querySelector("#pick-5");
+
+// Function to create random colours as hex codes
 
 function randCol(boxColour, boxText, pick) {
     let hexCode = '#';
@@ -34,6 +39,8 @@ function randCol(boxColour, boxText, pick) {
     pick.value = hexCode;
 }
 
+// Function to generate colours for all five boxes
+
 function generate() {
     randCol(colourOne, textOne, pickOne);
     randCol(colourTwo, textTwo, pickTwo);
@@ -42,10 +49,29 @@ function generate() {
     randCol(colourFive, textFive, pickFive);
 }
 
-generate();
+// Event listener for spacebar to generate new palette
 
 document.addEventListener("keydown", function(e) {
     if (e.key === " ") {
         generate()
     };
 });
+
+// Event listener for clicking `Generate` button to create new palette
+
+genBtn.addEventListener("click", function(e) {
+    generate();
+})
+
+// Event listener for new colour picked which will affect the background colour and hex code listed
+
+document.addEventListener("change", function(e) {
+    const number = e.target.id.match(/\d/);
+    const newColour = document.querySelector(`#colour-${number}`);
+    const newText = document.querySelector(`#text-${number}`);
+
+    newColour.style.backgroundColor = e.target.value;
+    newText.innerText = e.target.value;
+})
+
+generate();

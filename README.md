@@ -9,7 +9,7 @@ The requirements are as follows:
 1. Code hosted on GitHub
 1. Deployed to GitHub Pages
 1. Auto-generate multiple colours
-1. Allow users to change each colour
+1. Allow users to change each colour|
 
 ### Optional features 
 1. Export colour palette in different formats (e.g. JSON, CSS variables)
