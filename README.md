@@ -23,3 +23,17 @@ This is my attempt at that. I have taken inspiration from [Coolors](https://cool
 ## WIP
 
 I still have to add functionality so that users can select individual colours and change them to suit their needs. I plan to use an `input type="color"` to achieve this, which will then modify the background-color of the parent element.
+
+As I was creating this, I realised that it wouldn't be possible to generate a new palette without refreshing on mobile. I added a Generate `button` which displays on screens with `max-width: 600px`. I need to add the code to make it run the generate function when clicked.
+
+### Still to come
+
+- Add button functionality
+- Add colour picker so users can change each colour
+- Add a popup of some form to tell users how to use the generator
+
+### Stretch goals
+
+- Upload photos to pick main colours
+- Lock in colours
+- Generate monochromatic, analogous, complementary palettes

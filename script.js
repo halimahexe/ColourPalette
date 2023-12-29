@@ -10,14 +10,19 @@ const textTwo = document.querySelector("#text-two");
 const textThree = document.querySelector("#text-three");
 const textFour = document.querySelector("#text-four");
 const textFive = document.querySelector("#text-five");
+const pickOne = document.querySelector("#pick-one");
+const pickTwo = document.querySelector("#pick-two");
+const pickThree = document.querySelector("#pick-three");
+const pickFour = document.querySelector("#pick-four");
+const pickFive = document.querySelector("#pick-five");
 
-document.onload = instructions();
+// document.onload = instructions();
 
-function instructions() {
-    alert("Hello!");
-}
+// function instructions() {
+//     alert("Hello!");
+// }
 
-function randCol(boxColour, boxText) {
+function randCol(boxColour, boxText, pick) {
     let hexCode = '#';
 
     for (let i = 0; i < 6; i++) {
@@ -26,14 +31,15 @@ function randCol(boxColour, boxText) {
 
     boxColour.style.backgroundColor = hexCode;
     boxText.innerText = hexCode;
+    pick.value = hexCode;
 }
 
 function generate() {
-    randCol(colourOne, textOne);
-    randCol(colourTwo, textTwo);
-    randCol(colourThree, textThree);
-    randCol(colourFour, textFour);
-    randCol(colourFive, textFive);
+    randCol(colourOne, textOne, pickOne);
+    randCol(colourTwo, textTwo, pickTwo);
+    randCol(colourThree, textThree, pickThree);
+    randCol(colourFour, textFour, pickFour);
+    randCol(colourFive, textFive, pickFive);
 }
 
 generate();
