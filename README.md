@@ -20,16 +20,21 @@ The requirements are as follows:
 
 This is my attempt at that. I have taken inspiration from [Coolors](https://coolors.co/) and set up a page which has 5 colours that are generated upon loading and whenever the spacebar is pressed.
 
+### Features so far
+
+- Auto-generates five colours on load
+- Users can click hex code to bring up a colour picker to change each colour
+- On desktop, pressing spacebar will generate a new palette; on mobile, pressing the generate button will do the same
+
 ## WIP
 
-I still have to add functionality so that users can select individual colours and change them to suit their needs. I plan to use an `input type="color"` to achieve this, which will then modify the background-color of the parent element.
-
-As I was creating this, I realised that it wouldn't be possible to generate a new palette without refreshing on mobile. I added a Generate `button` which displays on screens with `max-width: 600px`. I need to add the code to make it run the generate function when clicked.
+Now that I have the required features, I'd like to work on the optional features. I think, instead of hex codes, I will have to use HSL to generate colours that are related rather than random.
 
 ### Still to come
 
-- Add button functionality
-- Add colour picker so users can change each colour
+- Generate related colours (I think I will have to switch to hsl for this)
+- Make the text colour of the label change from white to black depending on the hue of the background colour
+- On hover make the background of the text a darker hue to the background (rather than just black as it is currently)
 - Add a popup of some form to tell users how to use the generator
 
 ### Stretch goals
