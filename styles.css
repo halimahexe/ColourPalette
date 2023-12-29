@@ -54,6 +54,10 @@ body {
 
 }
 
+input[type=color] {
+    visibility: hidden;
+}
+
 .text {
     position: relative;
     /* top: calc(100% - 100px); */
