@@ -47,14 +47,33 @@ function randomHSL(boxColour, boxText, pick) {
     let l = Math.floor(Math.random() * 100);
 
     let hslColour = `hsl(${h}, ${s}%, ${l}%)`
-    console.log(hslColour);
 
     if (l > 36) {
         boxText.classList.add('is-light');
     }
+
+    
 }
 
-randomHSL(colourOne, textOne, pickOne);
+function pastels(boxColour, boxText, pick) {
+    let h = Math.floor(Math.random() * 360);
+    let s = Math.floor(Math.random() * 100);
+    let l = 80 // This says how light the colour should be, so you can set it as a specific lightness to only get pastels!
+
+    let hslColour = `hsl(${h}, ${s}%, ${l}%)`;
+
+    boxColour.style.backgroundColor = hslColour;
+    boxText.innerText = hslColour;
+    pick.value = hslColour;
+}
+
+function generatePastels() {
+    pastels(colourOne, textOne, pickOne);
+    pastels(colourTwo, textTwo, pickTwo);
+    pastels(colourThree, textThree, pickThree);
+    pastels(colourFour, textFour, pickFour);
+    pastels(colourFive, textFive, pickFive);
+}
 
 // Function to generate colours for all five boxes
 
