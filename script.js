@@ -11,6 +11,12 @@ const textThree = document.querySelector("#text-three");
 const textFour = document.querySelector("#text-four");
 const textFive = document.querySelector("#text-five");
 
+document.onload = instructions();
+
+function instructions() {
+    alert("Hello!");
+}
+
 function randCol(boxColour, boxText) {
     let hexCode = '#';
 
