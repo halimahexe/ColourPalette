@@ -27,7 +27,58 @@ const pickThree = document.querySelector("#pick-3");
 const pickFour = document.querySelector("#pick-4");
 const pickFive = document.querySelector("#pick-5");
 
+
 // FUNCTIONS
+
+// Function to create random HSL codes
+
+function randomHSL(boxColour, boxText, pick) { // Don't think it makes sense to call `boxColour`, `boxText` and `pick` in this function...
+    let h = Math.floor(Math.random() * 360);
+    let s = Math.floor(Math.random() * 100);
+    let l = Math.floor(Math.random() * 100);
+    
+    getHex(h, s, l, boxColour, boxText, pick); //
+}
+
+// Function to create pastel colours
+
+function pastels(boxColour, boxText, pick) {
+    let h = Math.floor(Math.random() * 360);
+    let s = Math.floor(Math.random() * 100);
+    let l = Math.floor(Math.random() * 30) + 70;
+
+    getHex(h, s, l, boxColour, boxText, pick);
+}
+
+// Function to generate random pastels
+
+function generatePastels() {
+    pastels(colourOne, textOne, pickOne);
+    pastels(colourTwo, textTwo, pickTwo);
+    pastels(colourThree, textThree, pickThree);
+    pastels(colourFour, textFour, pickFour);
+    pastels(colourFive, textFive, pickFive);
+};
+
+// Function to generate random colours for all five boxes
+
+function generate() {
+    randomHSL(colourOne, textOne, pickOne);
+    randomHSL(colourTwo, textTwo, pickTwo);
+    randomHSL(colourThree, textThree, pickThree);
+    randomHSL(colourFour, textFour, pickFour);
+    randomHSL(colourFive, textFive, pickFive);
+}
+
+// Function to generate complementary colours
+
+function complementary() {
+    randomHSL(colourOne, textOne, pickOne);
+}
+
+function generateComplementary() {
+
+}
 
 // Function to change HSL to Hex
 
@@ -83,25 +134,15 @@ function HSLtoHex(h, s, l) {
     return "#" + r + g + b;
 }
 
-// Function to get HSL code and then pass that to other functions to avoid repeating code
+// Function to get colour code and then pass that to other functions to avoid repeating code
 
-function getColour(h, s, l, boxColour, boxText, pick) {
+function getHex(h, s, l, boxColour, boxText, pick) {
     isLight(boxText, l);
 
     boxColour.style.backgroundColor = HSLtoHex(h, s, l);
     boxText.innerText = HSLtoHex(h, s, l);
     pick.value = HSLtoHex(h, s, l);
 };
-
-// Function to create random colours as HSL codes
-
-function randomHSL(boxColour, boxText, pick) { // Don't think it makes sense to call `boxColour`, `boxText` and `pick` in this function...
-    let h = Math.floor(Math.random() * 360);
-    let s = Math.floor(Math.random() * 100);
-    let l = Math.floor(Math.random() * 100);
-    
-    getColour(h, s, l, boxColour, boxText, pick); //
-}
 
 // Function to change colour of text depending on how light the generated background colour is
 
@@ -113,35 +154,6 @@ function isLight(boxText, l) {
     }
 }
 
-// Function to create pastel colours
-
-function pastels(boxColour, boxText, pick) {
-    let h = Math.floor(Math.random() * 360);
-    let s = Math.floor(Math.random() * 100);
-    let l = Math.floor(Math.random() * 30) + 70;
-
-    getColour(h, s, l, boxColour, boxText, pick);
-}
-
-// Function to generate random pastels
-
-function generatePastels() {
-    pastels(colourOne, textOne, pickOne);
-    pastels(colourTwo, textTwo, pickTwo);
-    pastels(colourThree, textThree, pickThree);
-    pastels(colourFour, textFour, pickFour);
-    pastels(colourFive, textFive, pickFive);
-};
-
-// Function to generate random colours for all five boxes
-
-function generate() {
-    randomHSL(colourOne, textOne, pickOne);
-    randomHSL(colourTwo, textTwo, pickTwo);
-    randomHSL(colourThree, textThree, pickThree);
-    randomHSL(colourFour, textFour, pickFour);
-    randomHSL(colourFive, textFive, pickFive);
-}
 
 // EVENT LISTENERS
 
