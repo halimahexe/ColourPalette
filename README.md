@@ -25,7 +25,9 @@ This is my attempt at that. I have taken inspiration from [Coolors](https://cool
 - Auto-generates five colours on load
 - Users can click hex code to bring up a colour picker to change each colour
 - On desktop, pressing spacebar will generate a new palette; on mobile, pressing the generate button will do the same
-- When hovering hover the hex code, the background changes slightly (ideally this will be darker on light backgrounds and lighter on dark backgrounds - I have written the code and CSS for this but need to implement it)
+- When hovering over the hex code, the background changes slightly (darker on light backgrounds and lighter on dark backgrounds)
+- Pastel colour generator
+- Implemented a HSL to Hex conversion function using code from [CSS Tricks](https://css-tricks.com/converting-color-spaces-in-javascript/#aa-hsl-to-rgb) - I felt this was needed as the `input[type="color"]` wasn't registering the HSL codes and the HSL felt quite busy on the page
 
 ## WIP
 
