@@ -1,5 +1,4 @@
-// Characters that make up hex code
-// const chars = 'abcdef0123456789';
+// INITIALISE VARIABLES
 
 // Buttons
 const genBtn = document.querySelector('#generate');
@@ -28,34 +27,80 @@ const pickThree = document.querySelector("#pick-3");
 const pickFour = document.querySelector("#pick-4");
 const pickFive = document.querySelector("#pick-5");
 
-// Function to create random colours as hex codes
+// FUNCTIONS
 
-// function randomHex(boxColour, boxText, pick) {
-//     let hexCode = '#';
+// Function to change HSL to Hex
 
-//     for (let i = 0; i < 6; i++) {
-//         hexCode += chars[Math.floor(Math.random() * chars.length)];
-//     }
+function HSLtoHex(h, s, l) {
+    // First convert HSL to RGB
+    // I don't fully understand these formulae which I took from CSS Tricks
+    
+    s /= 100;
+    l /= 100;
 
-//     boxColour.style.backgroundColor = hexCode;
-//     boxText.innerText = hexCode;
-//     pick.value = hexCode;
-// }
+    let c = (1 - Math.abs(2 * l - 1)) * s; // c is colour intensity
+    let x = c * (1 - Math.abs((h / 60) % 2 - 1)); // x is second most intense colour
+    let m = l - c/2; // m is lightness
+    let r = 0;
+    let g = 0;
+    let b = 0;
+
+    if (0 <= h && h < 60) {
+        r = c; g = x; b = 0;  
+        } else if (60 <= h && h < 120) {
+        r = x; g = c; b = 0;
+        } else if (120 <= h && h < 180) {
+        r = 0; g = c; b = x;
+        } else if (180 <= h && h < 240) {
+        r = 0; g = x; b = c;
+        } else if (240 <= h && h < 300) {
+        r = x; g = 0; b = c;
+        } else if (300 <= h && h < 360) {
+        r = c; g = 0; b = x;
+        }
+    r = Math.round((r + m) * 255);
+    g = Math.round((g + m) * 255);
+    b = Math.round((b + m) * 255);
+    
+    // RGB to Hex
+
+    r = r.toString(16); // Converts the RGB values to hexadecimal string
+    g = g.toString(16);
+    b = b.toString(16);
+
+    if (r.length == 1) {
+        r = "0" + r;
+    }
+
+    if (g.length == 1) {
+        g = "0" + g;
+    }
+    
+    if (b.length == 1) {
+        b = "0" + b;
+    }
+
+    return "#" + r + g + b;
+}
+
+// Function to get HSL code and then pass that to other functions to avoid repeating code
+
+function getColour(h, s, l, boxColour, boxText, pick) {
+    isLight(boxText, l);
+
+    boxColour.style.backgroundColor = HSLtoHex(h, s, l);
+    boxText.innerText = HSLtoHex(h, s, l);
+    pick.value = HSLtoHex(h, s, l);
+};
 
 // Function to create random colours as HSL codes
 
-function randomHSL(boxColour, boxText, pick) {
+function randomHSL(boxColour, boxText, pick) { // Don't think it makes sense to call `boxColour`, `boxText` and `pick` in this function...
     let h = Math.floor(Math.random() * 360);
     let s = Math.floor(Math.random() * 100);
     let l = Math.floor(Math.random() * 100);
-
-    let hslColour = `hsl(${h}, ${s}%, ${l}%)`
-
-    isLight(boxText, l);
-
-    boxColour.style.backgroundColor = hslColour;
-    boxText.innerText = hslColour;
-    pick.value = hslColour;
+    
+    getColour(h, s, l, boxColour, boxText, pick); //
 }
 
 // Function to change colour of text depending on how light the generated background colour is
@@ -75,26 +120,20 @@ function pastels(boxColour, boxText, pick) {
     let s = Math.floor(Math.random() * 100);
     let l = Math.floor(Math.random() * 30) + 70;
 
-    let hslColour = `hsl(${h}, ${s}%, ${l}%)`;
-
-    isLight(boxText, l);
-
-    boxColour.style.backgroundColor = hslColour;
-    boxText.innerText = hslColour;
-    pick.value = hslColour;
+    getColour(h, s, l, boxColour, boxText, pick);
 }
 
-// Event listener and function to generate pastels
+// Function to generate random pastels
 
-pastelBtn.addEventListener('click', function generatePastels() {
+function generatePastels() {
     pastels(colourOne, textOne, pickOne);
     pastels(colourTwo, textTwo, pickTwo);
     pastels(colourThree, textThree, pickThree);
     pastels(colourFour, textFour, pickFour);
     pastels(colourFive, textFive, pickFive);
-});
+};
 
-// Function to generate colours for all five boxes
+// Function to generate random colours for all five boxes
 
 function generate() {
     randomHSL(colourOne, textOne, pickOne);
@@ -104,18 +143,32 @@ function generate() {
     randomHSL(colourFive, textFive, pickFive);
 }
 
+// EVENT LISTENERS
+
+// Initial palette loads once rest of content has loaded
+
+document.addEventListener("DOMContentLoaded", function(e) {
+    generate();
+})
+
 // Event listener for spacebar to generate new palette
 
 document.addEventListener("keydown", function(e) {
     if (e.key === " ") {
         generate()
     };
-});
+})
 
 // Event listener for clicking `Generate` button to create new palette
 
 genBtn.addEventListener("click", function(e) {
     generate();
+})
+
+// Event listener for clicking `Pastels` button to create new pastels palette
+
+pastelBtn.addEventListener("click", function(e) {
+    generatePastels();
 })
 
 // Event listener for new colour picked which will affect the background colour and hex code listed
@@ -128,5 +181,3 @@ document.addEventListener("change", function(e) {
     newColour.style.backgroundColor = e.target.value;
     newText.innerText = e.target.value;
 })
-
-generate();
