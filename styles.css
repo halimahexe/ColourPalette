@@ -98,7 +98,7 @@ input[type=color] {
     background: rgba(0,0,0,0.1);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 680px) {
     .colour-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 1fr);
@@ -106,22 +106,27 @@ input[type=color] {
         height: calc(100% - 160px);
     }
 
+    .subheader {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        height: 100px;
+        text-align: center;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content:space-evenly;
+    }
+}
+
+@media (max-width: 660px) {
     h1 {
         font-size: 1.6rem;
     }
 
     .header button {
         display: inline-block;
-    }
-
-    .subheader {
-        display: grid;
-        height: 100px;
-    }
-
-    .button-container {
-        display: flex;
-        justify-content: space-evenly;
     }
 }
 
