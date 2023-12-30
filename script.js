@@ -109,16 +109,10 @@ function HSLtoHex(h, s, l) {
         } else if (300 <= h && h < 360) {
         r = c; g = 0; b = x;
         }
-    r = Math.round((r + m) * 255);
-    g = Math.round((g + m) * 255);
-    b = Math.round((b + m) * 255);
+    r = Math.round((r + m) * 255).toString(16);
+    g = Math.round((g + m) * 255).toString(16);
+    b = Math.round((b + m) * 255).toString(16);
     
-    // RGB to Hex
-
-    r = r.toString(16); // Converts the RGB values to hexadecimal string
-    g = g.toString(16);
-    b = b.toString(16);
-
     if (r.length == 1) {
         r = "0" + r;
     }
