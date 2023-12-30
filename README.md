@@ -26,17 +26,19 @@ This is my attempt at that. I have taken inspiration from [Coolors](https://cool
 - Users can click hex code to bring up a colour picker to change each colour
 - On desktop, pressing spacebar will generate a new palette; on mobile, pressing the generate button will do the same
 - When hovering over the hex code, the background changes slightly (darker on light backgrounds and lighter on dark backgrounds)
-- Pastel colour generator
+- Added pastel, complementary, analogous and monochromatic colour generators
 - Implemented a HSL to Hex conversion function using code from [CSS Tricks](https://css-tricks.com/converting-color-spaces-in-javascript/#aa-hsl-to-rgb) - I felt this was needed as the `input[type="color"]` wasn't registering the HSL codes and the HSL felt quite busy on the page
 
 ## WIP
 
-Now that I have the required features, I'd like to work on the optional features. I think, instead of hex codes, I will have to use HSL to generate colours that are related rather than random.
+I have worked through all of the required features and some optional features but they do require finessing. The code I have to generate colours seems quite repetitive to me and they don't all work entirely as I'd like. However, I would like to make it an option to export the colour palettes and save them to localStorage.
 
 ### Still to come
 
-- Generate related colours, such as monochromatic, analogous, complementary and pastel palettes (I think I will have to switch to hsl for this)
-- Make the text colour of the label change from white to black depending on the hue of the background colour
+- Fix monochromatic generator as if the value is beyond 100, it doesn't quite work
+- Make it possible to copy specific colours
+- Add option to export palettes
+- Add option to save palette to localStorage
 - Add a popup of some form to tell users how to use the generator
 
 ### Stretch goals
