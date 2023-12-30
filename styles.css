@@ -107,6 +107,15 @@ footer {
     color: #8d8d8d;
 }
 
+footer > a {
+    text-decoration: none;
+    color: #683997;
+}
+
+footer > a:hover {
+    color: inherit;
+}
+
 @media (max-width: 680px) {
     .colour-grid {
         grid-template-columns: 1fr;

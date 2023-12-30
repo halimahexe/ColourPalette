@@ -1,8 +1,11 @@
 // Characters that make up hex code
-const chars = 'abcdef0123456789';
+// const chars = 'abcdef0123456789';
 
-// Generate button
+// Buttons
 const genBtn = document.querySelector('#generate');
+const pastelBtn = document.querySelector('#pastels');
+const compBtn = document.querySelector('#complementary');
+const anaBtn = document.querySelector('#analogous');
 
 // Colour boxes
 const colourOne = document.querySelector("#colour-1");
@@ -27,17 +30,17 @@ const pickFive = document.querySelector("#pick-5");
 
 // Function to create random colours as hex codes
 
-function randomHex(boxColour, boxText, pick) {
-    let hexCode = '#';
+// function randomHex(boxColour, boxText, pick) {
+//     let hexCode = '#';
 
-    for (let i = 0; i < 6; i++) {
-        hexCode += chars[Math.floor(Math.random() * chars.length)];
-    }
+//     for (let i = 0; i < 6; i++) {
+//         hexCode += chars[Math.floor(Math.random() * chars.length)];
+//     }
 
-    boxColour.style.backgroundColor = hexCode;
-    boxText.innerText = hexCode;
-    pick.value = hexCode;
-}
+//     boxColour.style.backgroundColor = hexCode;
+//     boxText.innerText = hexCode;
+//     pick.value = hexCode;
+// }
 
 // Function to create random colours as HSL codes
 
@@ -48,34 +51,48 @@ function randomHSL(boxColour, boxText, pick) {
 
     let hslColour = `hsl(${h}, ${s}%, ${l}%)`
 
-    if (l > 36) {
-        boxText.classList.add('is-light');
-    }
+    isLight(boxText, l);
 
     boxColour.style.backgroundColor = hslColour;
     boxText.innerText = hslColour;
     pick.value = hslColour;
 }
+
+// Function to change colour of text depending on how light the generated background colour is
+
+function isLight(boxText, l) {
+    if (l > 36) {
+        boxText.classList.add('is-light');
+    } else {
+        boxText.classList.remove('is-light');
+    }
+}
+
+// Function to create pastel colours
 
 function pastels(boxColour, boxText, pick) {
     let h = Math.floor(Math.random() * 360);
     let s = Math.floor(Math.random() * 100);
-    let l = 80 // This says how light the colour should be, so you can set it as a specific lightness to only get pastels!
+    let l = Math.floor(Math.random() * 30) + 70;
 
     let hslColour = `hsl(${h}, ${s}%, ${l}%)`;
+
+    isLight(boxText, l);
 
     boxColour.style.backgroundColor = hslColour;
     boxText.innerText = hslColour;
     pick.value = hslColour;
 }
 
-function generatePastels() {
+// Event listener and function to generate pastels
+
+pastelBtn.addEventListener('click', function generatePastels() {
     pastels(colourOne, textOne, pickOne);
     pastels(colourTwo, textTwo, pickTwo);
     pastels(colourThree, textThree, pickThree);
     pastels(colourFour, textFour, pickFour);
     pastels(colourFive, textFive, pickFive);
-}
+});
 
 // Function to generate colours for all five boxes
 
