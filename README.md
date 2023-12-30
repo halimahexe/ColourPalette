@@ -25,6 +25,7 @@ This is my attempt at that. I have taken inspiration from [Coolors](https://cool
 - Auto-generates five colours on load
 - Users can click hex code to bring up a colour picker to change each colour
 - On desktop, pressing spacebar will generate a new palette; on mobile, pressing the generate button will do the same
+- When hovering hover the hex code, the background changes slightly (ideally this will be darker on light backgrounds and lighter on dark backgrounds - I have written the code and CSS for this but need to implement it)
 
 ## WIP
 
@@ -32,13 +33,11 @@ Now that I have the required features, I'd like to work on the optional features
 
 ### Still to come
 
-- Generate related colours (I think I will have to switch to hsl for this)
+- Generate related colours, such as monochromatic, analogous, complementary and pastel palettes (I think I will have to switch to hsl for this)
 - Make the text colour of the label change from white to black depending on the hue of the background colour
-- On hover make the background of the text a darker hue to the background (rather than just black as it is currently)
 - Add a popup of some form to tell users how to use the generator
 
 ### Stretch goals
 
 - Upload photos to pick main colours
 - Lock in colours
-- Generate monochromatic, analogous, complementary palettes

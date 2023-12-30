@@ -102,6 +102,8 @@ input[type=color] {
     .colour-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 1fr);
+        top: 160px;
+        height: calc(100% - 160px);
     }
 
     h1 {
@@ -110,6 +112,16 @@ input[type=color] {
 
     .header button {
         display: inline-block;
+    }
+
+    .subheader {
+        display: grid;
+        height: 100px;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: space-evenly;
     }
 }
 
