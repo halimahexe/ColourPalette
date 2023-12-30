@@ -27,7 +27,7 @@ const pickFive = document.querySelector("#pick-5");
 
 // Function to create random colours as hex codes
 
-function randHexCol(boxColour, boxText, pick) {
+function randomHex(boxColour, boxText, pick) {
     let hexCode = '#';
 
     for (let i = 0; i < 6; i++) {
@@ -52,7 +52,9 @@ function randomHSL(boxColour, boxText, pick) {
         boxText.classList.add('is-light');
     }
 
-    
+    boxColour.style.backgroundColor = hslColour;
+    boxText.innerText = hslColour;
+    pick.value = hslColour;
 }
 
 function pastels(boxColour, boxText, pick) {
@@ -78,11 +80,11 @@ function generatePastels() {
 // Function to generate colours for all five boxes
 
 function generate() {
-    randHexCol(colourOne, textOne, pickOne);
-    randHexCol(colourTwo, textTwo, pickTwo);
-    randHexCol(colourThree, textThree, pickThree);
-    randHexCol(colourFour, textFour, pickFour);
-    randHexCol(colourFive, textFive, pickFive);
+    randomHSL(colourOne, textOne, pickOne);
+    randomHSL(colourTwo, textTwo, pickTwo);
+    randomHSL(colourThree, textThree, pickThree);
+    randomHSL(colourFour, textFour, pickFour);
+    randomHSL(colourFive, textFive, pickFive);
 }
 
 // Event listener for spacebar to generate new palette

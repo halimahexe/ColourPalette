@@ -56,7 +56,7 @@ button {
     display: grid;
     position: absolute;
     grid-template-columns: repeat(5, 1fr);
-    height: calc(100% - 120px);
+    height: calc(100% - 155px);
     top: 120px;
     width: 100%;
     text-align: center;
@@ -98,12 +98,21 @@ input[type=color] {
     background: rgba(0,0,0,0.1);
 }
 
+footer {
+    position: absolute;
+    bottom: 0;
+    height: 35px;
+    width: 100%;
+    padding: 5px 10px;
+    color: #8d8d8d;
+}
+
 @media (max-width: 680px) {
     .colour-grid {
         grid-template-columns: 1fr;
         grid-template-rows: repeat(5, 1fr);
         top: 160px;
-        height: calc(100% - 160px);
+        height: calc(100% - 195px);
     }
 
     .subheader {
