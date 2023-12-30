@@ -42,7 +42,8 @@ body {
     justify-content: space-between;
 }
 
-button {
+/* Generator buttons */
+button.gen {
     padding: 5px;
     font-weight: 600;
     border-radius: 10px;
@@ -50,6 +51,16 @@ button {
     font-size: 0.9rem;
     background-color: #6e4696;
     color: #ffffff;
+}
+
+button.copy {
+    height: 40px;
+    width: 40px;
+}
+
+button.copy > img {
+    height: 40px;
+    width: 40px;
 }
 
 .colour-grid {

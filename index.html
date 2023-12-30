@@ -8,19 +8,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!--Vectors and icons by <a href="https://www.figma.com/@d12da0b9_b193_4?ref=svgrepo.com" target="_blank">Giovana</a> in CC Attribution License via <a href="https://www.svgrepo.com/" target="_blank">SVG Repo</a>-->
 </head>
 <body>
     <div class="header">
         <h1>Colour Palette Generator</h1>
-        <button id="generate">Generate</button>
+        <button id="generate" class="gen">Generate</button>
     </div>
     <div class="subheader">
         <p>Press spacebar or a button to generate a palette!</p>
         <div class="button-container">
-            <button id="pastels">Pastels</button>
-            <button id="complementary">Complementary</button>
-            <button id="analogous">Analogous</button>
-            <button id="mono">Monochromatic</button>
+            <button id="pastels" class="gen">Pastels</button>
+            <button id="complementary" class="gen">Complementary</button>
+            <button id="analogous" class="gen">Analogous</button>
+            <button id="mono" class="gen">Monochromatic</button>
         </div>
     </div>
     <div class="instrmodal" id="modal">
@@ -28,6 +29,9 @@
     </div>
     <main class="colour-grid">
         <div id="colour-1">
+            <button id="copy-1" class="copy">
+                <img src="img\copy-svgrepo-com.svg">
+            </button>
             <input type="color" id="pick-1">
             <label for="pick-1" class="text" id="text-1"></label>
         </div>
