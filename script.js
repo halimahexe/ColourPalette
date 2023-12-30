@@ -1,10 +1,11 @@
-// INITIALISE VARIABLES
+/*--------- INITIALISE VARIABLES ---------*/
 
 // Buttons
 const genBtn = document.querySelector('#generate');
 const pastelBtn = document.querySelector('#pastels');
 const compBtn = document.querySelector('#complementary');
 const anaBtn = document.querySelector('#analogous');
+const monoBtn = document.querySelector('#mono');
 
 // Colour boxes
 const colourOne = document.querySelector("#colour-1");
@@ -28,7 +29,7 @@ const pickFour = document.querySelector("#pick-4");
 const pickFive = document.querySelector("#pick-5");
 
 
-// FUNCTIONS
+/*--------- FUNCTIONS ---------*/
 
 // Function to create random HSL codes
 
@@ -72,12 +73,59 @@ function generate() {
 
 // Function to generate complementary colours
 
-function complementary() {
-    randomHSL(colourOne, textOne, pickOne);
+function generateComplementary() {
+    let h1 = Math.floor(Math.random() * 360);
+    let s1 = Math.floor(Math.random() * 100);
+    let l1 = Math.floor(Math.random() * 100);
+
+    let h2 = (h1 + 72) % 360;
+    let h3 = (h2 + 72) % 360;
+    let h4 = (h3 + 72) % 360;
+    let h5 = (h4 + 72) % 360;
+    
+    getHex(h1, s1, l1, colourOne, textOne, pickOne);
+    getHex(h2, s1, l1, colourTwo, textTwo, pickTwo);
+    getHex(h3, s1, l1, colourThree, textThree, pickThree);
+    getHex(h4, s1, l1, colourFour, textFour, pickFour);
+    getHex(h5, s1, l1, colourFive, textFive, pickFive);
 }
 
-function generateComplementary() {
+// Function to generate analogous colours
 
+function generateAnalogous() {
+    let h1 = Math.floor(Math.random() * 360);
+    let s1 = Math.floor(Math.random() * 100);
+    let l1 = Math.floor(Math.random() * 100);
+
+    let h2 = (h1 + 30) % 360;
+    let h3 = (h2 + 30) % 360;
+    let h4 = (h3 + 30) % 360;
+    let h5 = (h4 + 30) % 360;
+    
+    getHex(h1, s1, l1, colourOne, textOne, pickOne);
+    getHex(h2, s1, l1, colourTwo, textTwo, pickTwo);
+    getHex(h3, s1, l1, colourThree, textThree, pickThree);
+    getHex(h4, s1, l1, colourFour, textFour, pickFour);
+    getHex(h5, s1, l1, colourFive, textFive, pickFive);
+}
+
+// Function to generate analogous colours
+
+function generateMono() {
+    let h1 = Math.floor(Math.random() * 360);
+    let s1 = Math.floor(Math.random() * 100);
+    let l1 = Math.floor(Math.random() * 100);
+
+    let s2 = (s1 + 15) % 100;
+    let s3 = (s2 + 15) % 100;
+    let s4 = (s3 + 15) % 100;
+    let s5 = (s4 + 15) % 100;
+    
+    getHex(h1, s1, l1, colourOne, textOne, pickOne);
+    getHex(h1, s2, l1, colourTwo, textTwo, pickTwo);
+    getHex(h1, s3, l1, colourThree, textThree, pickThree);
+    getHex(h1, s4, l1, colourFour, textFour, pickFour);
+    getHex(h1, s5, l1, colourFive, textFive, pickFive);
 }
 
 // Function to change HSL to Hex
@@ -149,7 +197,7 @@ function isLight(boxText, l) {
 }
 
 
-// EVENT LISTENERS
+/*--------- EVENT LISTENERS ---------*/
 
 // Initial palette loads once rest of content has loaded
 
@@ -175,6 +223,24 @@ genBtn.addEventListener("click", function(e) {
 
 pastelBtn.addEventListener("click", function(e) {
     generatePastels();
+})
+
+// Event listener for clicking `Complementary` button to create new complementary palette
+
+compBtn.addEventListener("click", function() {
+    generateComplementary();
+})
+
+// Event listener for clicking `Analogous` button to create new analogous palette
+
+anaBtn.addEventListener("click", function() {
+    generateAnalogous();
+})
+
+// Event listener for clicking `Mono` button to create new monochromatic palette
+
+monoBtn.addEventListener("click", function() {
+    generateMono();
 })
 
 // Event listener for new colour picked which will affect the background colour and hex code listed
