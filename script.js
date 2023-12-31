@@ -116,6 +116,9 @@ function generateMono() {
     let s1 = Math.floor(Math.random() * 100);
     let l1 = Math.floor(Math.random() * 100);
 
+    if (h1 > 40) {
+
+    }
     let s2 = (s1 + 15) % 100;
     let s3 = (s2 + 15) % 100;
     let s4 = (s3 + 15) % 100;

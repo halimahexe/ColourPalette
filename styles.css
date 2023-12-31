@@ -54,13 +54,13 @@ button.gen {
 }
 
 button.copy {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    aspect-ratio: 0.87;
 }
 
 button.copy > img {
-    height: 40px;
-    width: 40px;
+    height: 30px;
+    aspect-ratio: 0.87;
 }
 
 .colour-grid {
@@ -83,7 +83,7 @@ button.copy > img {
 
 input[type=color] {
     visibility: hidden;
-    display: inline;
+    display: block;
 }
 
 .text {
