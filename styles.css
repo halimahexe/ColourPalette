@@ -163,4 +163,12 @@ footer > a:hover {
     h1 {
         font-size: 1.3rem;
     }
+
+    .subheader {
+        font-size: 0.9rem;
+    }
+
+    button.gen {
+        font-size: 0.8rem;
+    }
 }

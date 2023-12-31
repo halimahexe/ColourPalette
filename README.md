@@ -39,7 +39,7 @@ I have worked through all of the required features and some optional features bu
 - Make it possible to copy specific colours
 - Add option to export palettes
 - Add option to save palette to localStorage
-- Add a popup of some form to tell users how to use the generator
+- Add a modal to tell users how to use the generator
 
 ### Stretch goals
 
