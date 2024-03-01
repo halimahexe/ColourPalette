@@ -2,7 +2,9 @@
 
 As part of the preparation for the Founders and Coders bootcamp, we were given the optional task of creating a colour palette generator using HTML, CSS and JavaScript.
 
-The requirements are as follows:
+![Colour palette generator showing a pink monochromatic palette in different shades](https://github.com/halimahexe/ColourPalette/assets/127022084/390cb324-6872-4db7-9fa1-8ce1c9f083cc)
+
+The requirements were as follows:
 
 ### Required features
 
