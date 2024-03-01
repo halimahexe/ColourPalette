@@ -12,7 +12,7 @@ The requirements were as follows:
 - [x] Code hosted on GitHub
 - [x] Deployed to GitHub Pages
 - [x] Auto-generate multiple colours
-- [x] Allow users to change each colour|
+- [x] Allow users to change each colour
 
 ### Optional features 
 
